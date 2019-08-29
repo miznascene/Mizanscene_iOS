@@ -10,30 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Intro View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="IntroViewController" customModule="Mizanscene" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Mizanscene" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8s-Oa-2il">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="J8s-Oa-2il" secondAttribute="trailing" id="01p-AA-e2C"/>
-                            <constraint firstItem="J8s-Oa-2il" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WwB-hl-IDf"/>
-                            <constraint firstItem="J8s-Oa-2il" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="fOa-DO-1ha"/>
-                            <constraint firstAttribute="top" secondItem="J8s-Oa-2il" secondAttribute="top" id="uGU-I6-hdD"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="IntroScrollView" destination="J8s-Oa-2il" id="62u-Mf-i5C"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

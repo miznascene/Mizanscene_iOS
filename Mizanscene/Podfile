@@ -7,8 +7,9 @@ target 'Mizanscene' do
 
   # Pods for Mizanscene
   pod 'Alamofire'
-  pod 'AlertOnboarding'
-  
+  pod 'paper-onboarding'
+  pod 'PinCodeTextField'
+
   target 'MizansceneTests' do
     inherit! :search_paths
     # Pods for testing

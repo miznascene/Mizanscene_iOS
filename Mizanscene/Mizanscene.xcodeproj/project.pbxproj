@@ -10,7 +10,19 @@
 		3BD9A4DD6283CB8CEC6A5C90 /* Pods_MizansceneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449C50ABF91313F09BF5F04E /* Pods_MizansceneUITests.framework */; };
 		579234134A70A9E7204B4BAF /* Pods_MizansceneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB09ADCF3C389538A44053C /* Pods_MizansceneTests.framework */; };
 		7785C627FDF2FF18688DD572 /* Pods_Mizanscene.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EEB8CC5B8F3A5F3B46AF523 /* Pods_Mizanscene.framework */; };
-		842286082313F4A5007AEC32 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842286072313F4A5007AEC32 /* IntroViewController.swift */; };
+		84321CC023154358002E5F31 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CBF23154357002E5F31 /* MainViewController.swift */; };
+		84321CC5231551F5002E5F31 /* Login.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84321CC4231551F5002E5F31 /* Login.xib */; };
+		84321CC723155282002E5F31 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CC623155282002E5F31 /* LoginView.swift */; };
+		84321CCA231553B4002E5F31 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CC9231553B4002E5F31 /* Extentions.swift */; };
+		84321CCC231568E9002E5F31 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CCB231568E9002E5F31 /* StringHelper.swift */; };
+		84321CD223165C57002E5F31 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CD123165C57002E5F31 /* ResetPasswordView.swift */; };
+		84321CD423165C87002E5F31 /* ResetPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84321CD323165C87002E5F31 /* ResetPassword.xib */; };
+		84321CD623165F48002E5F31 /* Register.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84321CD523165F48002E5F31 /* Register.xib */; };
+		84321CDC231661AA002E5F31 /* ReceiveCode.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84321CDB231661AA002E5F31 /* ReceiveCode.xib */; };
+		84321CDE231661C0002E5F31 /* ReceiveCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CDD231661C0002E5F31 /* ReceiveCodeView.swift */; };
+		84321CE023167245002E5F31 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CDF23167245002E5F31 /* RegisterView.swift */; };
+		84321CE223169CFF002E5F31 /* InputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CE123169CFF002E5F31 /* InputHelper.swift */; };
+		84321CE42316B8D3002E5F31 /* ValueKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CE32316B8D3002E5F31 /* ValueKeeper.swift */; };
 		84F961C92313B05700CD4671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F961C82313B05700CD4671 /* AppDelegate.swift */; };
 		84F961CE2313B05700CD4671 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F961CC2313B05700CD4671 /* Main.storyboard */; };
 		84F961D12313B05700CD4671 /* Mizanscene.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84F961CF2313B05700CD4671 /* Mizanscene.xcdatamodeld */; };
@@ -43,7 +55,19 @@
 		449C50ABF91313F09BF5F04E /* Pods_MizansceneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MizansceneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B7C7FE11EE0721F5D176E88 /* Pods-Mizanscene.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mizanscene.debug.xcconfig"; path = "Target Support Files/Pods-Mizanscene/Pods-Mizanscene.debug.xcconfig"; sourceTree = "<group>"; };
 		4EB09ADCF3C389538A44053C /* Pods_MizansceneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MizansceneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		842286072313F4A5007AEC32 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		84321CBF23154357002E5F31 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		84321CC4231551F5002E5F31 /* Login.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Login.xib; sourceTree = "<group>"; };
+		84321CC623155282002E5F31 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		84321CC9231553B4002E5F31 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		84321CCB231568E9002E5F31 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
+		84321CD123165C57002E5F31 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		84321CD323165C87002E5F31 /* ResetPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPassword.xib; sourceTree = "<group>"; };
+		84321CD523165F48002E5F31 /* Register.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Register.xib; sourceTree = "<group>"; };
+		84321CDB231661AA002E5F31 /* ReceiveCode.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiveCode.xib; sourceTree = "<group>"; };
+		84321CDD231661C0002E5F31 /* ReceiveCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveCodeView.swift; sourceTree = "<group>"; };
+		84321CDF23167245002E5F31 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		84321CE123169CFF002E5F31 /* InputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputHelper.swift; sourceTree = "<group>"; };
+		84321CE32316B8D3002E5F31 /* ValueKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueKeeper.swift; sourceTree = "<group>"; };
 		84F961C52313B05700CD4671 /* Mizanscene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mizanscene.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F961C82313B05700CD4671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84F961CD2313B05700CD4671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,10 +125,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		84321CC3231551D9002E5F31 /* UserActions */ = {
+			isa = PBXGroup;
+			children = (
+				84321CC4231551F5002E5F31 /* Login.xib */,
+				84321CD323165C87002E5F31 /* ResetPassword.xib */,
+				84321CD523165F48002E5F31 /* Register.xib */,
+				84321CDB231661AA002E5F31 /* ReceiveCode.xib */,
+			);
+			path = UserActions;
+			sourceTree = "<group>";
+		};
+		84321CC8231553A2002E5F31 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				84321CC9231553B4002E5F31 /* Extentions.swift */,
+				84321CE32316B8D3002E5F31 /* ValueKeeper.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		84F6491D2313BF2400EF0217 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				842286072313F4A5007AEC32 /* IntroViewController.swift */,
+				84321CBF23154357002E5F31 /* MainViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -122,6 +166,8 @@
 		84F6491F2313BF6600EF0217 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				84321CCB231568E9002E5F31 /* StringHelper.swift */,
+				84321CE123169CFF002E5F31 /* InputHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -136,6 +182,10 @@
 		84F649212313BF8F00EF0217 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				84321CC623155282002E5F31 /* LoginView.swift */,
+				84321CD123165C57002E5F31 /* ResetPasswordView.swift */,
+				84321CDD231661C0002E5F31 /* ReceiveCodeView.swift */,
+				84321CDF23167245002E5F31 /* RegisterView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -143,6 +193,7 @@
 		84F649222313BF9C00EF0217 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
+				84321CC3231551D9002E5F31 /* UserActions */,
 			);
 			path = Nibs;
 			sourceTree = "<group>";
@@ -179,6 +230,7 @@
 		84F961C72313B05700CD4671 /* Mizanscene */ = {
 			isa = PBXGroup;
 			children = (
+				84321CC8231553A2002E5F31 /* Tools */,
 				84F649232313BFA600EF0217 /* Models */,
 				84F6491F2313BF6600EF0217 /* Helpers */,
 				84F6491E2313BF3100EF0217 /* Views */,
@@ -340,8 +392,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84321CD423165C87002E5F31 /* ResetPassword.xib in Resources */,
+				84321CC5231551F5002E5F31 /* Login.xib in Resources */,
 				84F961D62313B05A00CD4671 /* LaunchScreen.storyboard in Resources */,
 				84F961D32313B05A00CD4671 /* Assets.xcassets in Resources */,
+				84321CD623165F48002E5F31 /* Register.xib in Resources */,
+				84321CDC231661AA002E5F31 /* ReceiveCode.xib in Resources */,
 				84F961CE2313B05700CD4671 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,9 +509,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				842286082313F4A5007AEC32 /* IntroViewController.swift in Sources */,
+				84321CE023167245002E5F31 /* RegisterView.swift in Sources */,
+				84321CCC231568E9002E5F31 /* StringHelper.swift in Sources */,
 				84F961D12313B05700CD4671 /* Mizanscene.xcdatamodeld in Sources */,
 				84F961C92313B05700CD4671 /* AppDelegate.swift in Sources */,
+				84321CE223169CFF002E5F31 /* InputHelper.swift in Sources */,
+				84321CE42316B8D3002E5F31 /* ValueKeeper.swift in Sources */,
+				84321CD223165C57002E5F31 /* ResetPasswordView.swift in Sources */,
+				84321CCA231553B4002E5F31 /* Extentions.swift in Sources */,
+				84321CDE231661C0002E5F31 /* ReceiveCodeView.swift in Sources */,
+				84321CC723155282002E5F31 /* LoginView.swift in Sources */,
+				84321CC023154358002E5F31 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +696,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 687BB68TVP;
 				INFOPLIST_FILE = Mizanscene/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -650,6 +715,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 687BB68TVP;
 				INFOPLIST_FILE = Mizanscene/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
