@@ -9,6 +9,7 @@ target 'Mizanscene' do
   pod 'Alamofire'
   pod 'paper-onboarding'
   pod 'PinCodeTextField'
+  pod 'SwiftyJSON'
 
   target 'MizansceneTests' do
     inherit! :search_paths

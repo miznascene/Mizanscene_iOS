@@ -23,6 +23,13 @@
 		84321CE023167245002E5F31 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CDF23167245002E5F31 /* RegisterView.swift */; };
 		84321CE223169CFF002E5F31 /* InputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CE123169CFF002E5F31 /* InputHelper.swift */; };
 		84321CE42316B8D3002E5F31 /* ValueKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CE32316B8D3002E5F31 /* ValueKeeper.swift */; };
+		84AD90EC231A66F2008B6471 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90EB231A66F2008B6471 /* URLHelper.swift */; };
+		84AD90EE231A6743008B6471 /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90ED231A6743008B6471 /* ViewHelper.swift */; };
+		84AD90F0231A675E008B6471 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90EF231A675E008B6471 /* APIHelper.swift */; };
+		84AD90F2231A68DE008B6471 /* AppTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90F1231A68DE008B6471 /* AppTools.swift */; };
+		84AD90F4231A6922008B6471 /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90F3231A6922008B6471 /* ValidationHelper.swift */; };
+		84AD90F6231A696E008B6471 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90F5231A696E008B6471 /* Movie.swift */; };
+		84AD90F8231A6976008B6471 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90F7231A6976008B6471 /* User.swift */; };
 		84F961C92313B05700CD4671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F961C82313B05700CD4671 /* AppDelegate.swift */; };
 		84F961CE2313B05700CD4671 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F961CC2313B05700CD4671 /* Main.storyboard */; };
 		84F961D12313B05700CD4671 /* Mizanscene.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84F961CF2313B05700CD4671 /* Mizanscene.xcdatamodeld */; };
@@ -68,6 +75,13 @@
 		84321CDF23167245002E5F31 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		84321CE123169CFF002E5F31 /* InputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputHelper.swift; sourceTree = "<group>"; };
 		84321CE32316B8D3002E5F31 /* ValueKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueKeeper.swift; sourceTree = "<group>"; };
+		84AD90EB231A66F2008B6471 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
+		84AD90ED231A6743008B6471 /* ViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
+		84AD90EF231A675E008B6471 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		84AD90F1231A68DE008B6471 /* AppTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTools.swift; sourceTree = "<group>"; };
+		84AD90F3231A6922008B6471 /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
+		84AD90F5231A696E008B6471 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		84AD90F7231A6976008B6471 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		84F961C52313B05700CD4671 /* Mizanscene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mizanscene.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F961C82313B05700CD4671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84F961CD2313B05700CD4671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -141,6 +155,7 @@
 			children = (
 				84321CC9231553B4002E5F31 /* Extentions.swift */,
 				84321CE32316B8D3002E5F31 /* ValueKeeper.swift */,
+				84AD90F1231A68DE008B6471 /* AppTools.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -168,6 +183,10 @@
 			children = (
 				84321CCB231568E9002E5F31 /* StringHelper.swift */,
 				84321CE123169CFF002E5F31 /* InputHelper.swift */,
+				84AD90EB231A66F2008B6471 /* URLHelper.swift */,
+				84AD90ED231A6743008B6471 /* ViewHelper.swift */,
+				84AD90EF231A675E008B6471 /* APIHelper.swift */,
+				84AD90F3231A6922008B6471 /* ValidationHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -201,6 +220,8 @@
 		84F649232313BFA600EF0217 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84AD90F5231A696E008B6471 /* Movie.swift */,
+				84AD90F7231A6976008B6471 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -509,17 +530,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AD90F0231A675E008B6471 /* APIHelper.swift in Sources */,
 				84321CE023167245002E5F31 /* RegisterView.swift in Sources */,
 				84321CCC231568E9002E5F31 /* StringHelper.swift in Sources */,
 				84F961D12313B05700CD4671 /* Mizanscene.xcdatamodeld in Sources */,
 				84F961C92313B05700CD4671 /* AppDelegate.swift in Sources */,
 				84321CE223169CFF002E5F31 /* InputHelper.swift in Sources */,
 				84321CE42316B8D3002E5F31 /* ValueKeeper.swift in Sources */,
+				84AD90EE231A6743008B6471 /* ViewHelper.swift in Sources */,
 				84321CD223165C57002E5F31 /* ResetPasswordView.swift in Sources */,
 				84321CCA231553B4002E5F31 /* Extentions.swift in Sources */,
+				84AD90F2231A68DE008B6471 /* AppTools.swift in Sources */,
 				84321CDE231661C0002E5F31 /* ReceiveCodeView.swift in Sources */,
+				84AD90F4231A6922008B6471 /* ValidationHelper.swift in Sources */,
+				84AD90EC231A66F2008B6471 /* URLHelper.swift in Sources */,
+				84AD90F8231A6976008B6471 /* User.swift in Sources */,
 				84321CC723155282002E5F31 /* LoginView.swift in Sources */,
 				84321CC023154358002E5F31 /* MainViewController.swift in Sources */,
+				84AD90F6231A696E008B6471 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

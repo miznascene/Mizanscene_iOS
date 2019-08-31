@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-Mizanscene/Pods-Mizanscene-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/PinCodeTextField/PinCodeTextField.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
 ${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework
