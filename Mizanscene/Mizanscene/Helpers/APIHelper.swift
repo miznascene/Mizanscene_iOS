@@ -16,76 +16,239 @@ class Connectivity {
     }
 }
 
-class AlamofireReq: NSObject {
-    let BASE_URL = ""
+class APIHelper: NSObject {
+    private let BASE_URL = "https://mizanscene.com/wp-json/mobile/v1/"
+    private var token = ""
 
-    static let sharedApi: AlamofireReq = {
-        let instance = AlamofireReq()
+    static let shared = APIHelper()
 
-        return instance
-    }()
-
-    func sendGetReq(urlString: String, lstParam: [String: AnyObject], onCompletion: @escaping(JSON, Bool) -> Void) {
-//        let url = BASE_URL + urlString
+    func setToken(token: String) {
+        self.token = token
     }
 
-    func sendPostReq(urlString: String, lstParam: [String: AnyObject], onCompletion: @escaping(JSON, Bool) -> Void) {
-        let url = BASE_URL + urlString
-        _ = Alamofire.request(url, method: .post, parameters: lstParam, encoding: JSONEncoding.default, headers: [:]).responseJSON {
-            response in
+    func getToken() -> String {
+        return self.token
+    }
+
+    func sendGetRequest(urlString: String, onCompletion: @escaping(Bool, JSON, JSON, JSON) -> Void) {
+
+        let urlComponent = URLComponents(string: BASE_URL + urlString)!
+
+        var request = URLRequest(url: urlComponent.url!)
+        request.httpMethod = "GET"
+
+        if token != "" {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+
+        _ = Alamofire.request(request).responseJSON(completionHandler: { (response) in
+
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
                 self.checkStatus(json: json, onCompletion: onCompletion)
+
             case .failure(let error):
                 let status = ["error": "\(error)"]
                 let json = JSON(status)
-                onCompletion(json, false)
-            }
-        }
-    }
-
-    func sendPostMPReq(urlString: String, lstParam: [String: AnyObject], image: UIImage?, filePath: URL?, onCompletion: @escaping(JSON, Bool) -> Void) {
-        let url = BASE_URL + urlString
-
-        Alamofire.upload(multipartFormData: { multipartFormData in
-            if let images = image, let imageData = images.jpegData(compressionQuality: 0.8) {
-                multipartFormData.append(imageData, withName: "image", fileName: "photo.jpeg", mimeType: "jpg/png")
-            } else if let path = filePath, let voiceContent = FileManager.default.contents(atPath: path.path) {
-                multipartFormData.append(voiceContent, withName: "file", fileName: path.lastPathComponent, mimeType: "audio/m4a")
-            }
-            for (key, value) in lstParam {
-                if value is String || value is Int {
-                    multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
-                }
-            }
-        }, to: url, encodingCompletion: { encodingResult in
-
-            switch encodingResult {
-            case .success(let upload, _, _):
-                upload.responseJSON { response in
-                    switch response.result {
-                    case .success(let value):
-                        let json = JSON(value)
-                        self.checkStatus(json: json, onCompletion: onCompletion)
-                    case .failure(let error):
-                        let status = ["error": "\(error)"]
-                        let json = JSON(status)
-                        onCompletion(json, false)
-                    }
-                }
-            case .failure(let encodingError):
-                print("encoding Error : \(encodingError)")
+                onCompletion(false, json, json, json)
             }
         })
     }
 
-    func checkStatus(json: JSON, onCompletion: (JSON, Bool) -> Void) {
+    func sendGetRequest(urlString: String, queries: [String: String], onCompletion: @escaping(Bool, JSON, JSON, JSON) -> Void) {
+
+        var urlComponent = URLComponents(string: BASE_URL + urlString)!
+        let queryItems = queries.map { URLQueryItem(name: $0.key, value: $0.value) }
+        urlComponent.queryItems = queryItems
+
+        var request = URLRequest(url: urlComponent.url!)
+        request.httpMethod = "GET"
+
+        if token != "" {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+
+        _ = Alamofire.request(request).responseJSON(completionHandler: { (response) in
+
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                self.checkStatus(json: json, onCompletion: onCompletion)
+
+            case .failure(let error):
+                let status = ["error": "\(error)"]
+                let json = JSON(status)
+                onCompletion(false, json, json, json)
+            }
+        })
+    }
+
+    func sendPostRequest(urlString: String, queries: [String: String], params: [String: AnyObject], onCompletion: @escaping(Bool, JSON, JSON, JSON) -> Void) {
+        var urlComponent = URLComponents(string: BASE_URL + urlString)!
+        let queryItems = queries.map { URLQueryItem(name: $0.key, value: $0.value) }
+        urlComponent.queryItems = queryItems
+
+        var request = URLRequest(url: urlComponent.url!)
+
+        do {
+            let jsonInfo = try
+                JSONSerialization.data(withJSONObject: params)
+            request.httpBody = jsonInfo
+        } catch {
+            print("ERROR")
+            return
+        }
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        if token != "" {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+
+        _ = Alamofire.request(request).responseJSON(completionHandler: { (response) in
+
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                self.checkStatus(json: json, onCompletion: onCompletion)
+
+            case .failure(let error):
+                let status = ["error": "\(error)"]
+                let json = JSON(status)
+                onCompletion(false, json, json, json)
+            }
+        })
+    }
+
+    func sendPostRequest(urlString: String, params: [String: AnyObject], onCompletion: @escaping(Bool, JSON, JSON, JSON) -> Void) {
+
+        let urlComponent = URLComponents(string: BASE_URL + urlString)!
+        var request = URLRequest(url: urlComponent.url!)
+        do {
+            let jsonInfo = try
+                JSONSerialization.data(withJSONObject: params)
+            request.httpBody = jsonInfo
+        } catch {
+            print("ERROR")
+            return
+        }
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        if token != "" {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+
+        _ = Alamofire.request(request).responseJSON(completionHandler: { (response) in
+
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                self.checkStatus(json: json, onCompletion: onCompletion)
+
+            case .failure(let error):
+                let status = ["error": "\(error)"]
+                let json = JSON(status)
+                onCompletion(false, json, json, json)
+            }
+        })
+    }
+
+    func sendPutRequest(urlString: String, queries: [String: String], params: [String: AnyObject], onCompletion: @escaping(Bool, JSON, JSON, JSON) -> Void) {
+        var urlComponent = URLComponents(string: BASE_URL + urlString)!
+        let queryItems = queries.map { URLQueryItem(name: $0.key, value: $0.value) }
+        urlComponent.queryItems = queryItems
+
+        var request = URLRequest(url: urlComponent.url!)
+        request.httpBody = try? JSONSerialization.data(withJSONObject: params)
+        request.httpMethod = "PUT"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        if token != "" {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+
+        _ = Alamofire.request(request).responseJSON(completionHandler: { (response) in
+
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                self.checkStatus(json: json, onCompletion: onCompletion)
+
+            case .failure(let error):
+                let status = ["error": "\(error)"]
+                let json = JSON(status)
+                onCompletion(false, json, json, json)
+            }
+        })
+    }
+
+    func sendPutRequest(urlString: String, params: [String: AnyObject], onCompletion: @escaping(Bool, JSON, JSON, JSON) -> Void) {
+
+        let urlComponent = URLComponents(string: BASE_URL + urlString)!
+        var request = URLRequest(url: urlComponent.url!)
+        request.httpBody = try? JSONSerialization.data(withJSONObject: params)
+        request.httpMethod = "PUT"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        if token != "" {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+
+        _ = Alamofire.request(request).responseJSON(completionHandler: { (response) in
+
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                self.checkStatus(json: json, onCompletion: onCompletion)
+
+            case .failure(let error):
+                let status = ["error": "\(error)"]
+                let json = JSON(status)
+                onCompletion(false, json, json, json)
+            }
+        })
+    }
+
+    func sendPostMPReq(urlString: String, queries: [String: String], params: [String: AnyObject], image: UIImage?, onCompletion: @escaping(Bool, JSON, JSON, JSON) -> Void) {
+
+        let url = BASE_URL + urlString
+
+        if token != "" {
+
+            let headerWithToken: HTTPHeaders = [
+                "Authorization": "Bearer \(token)",
+                "Content-Type": "application/json"
+            ]
+
+            Alamofire.upload(multipartFormData: { (multipartFormData) in
+                if let images = image, let imageData = images.jpegData(compressionQuality: 0.8) {
+
+                    multipartFormData.append(imageData, withName: "image", fileName: "photo.jpeg", mimeType: "jpg/png")
+                }
+
+                for (key, value) in params {
+
+                    if value is String || value is Int {
+
+                        multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+                    }
+                }
+            }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headerWithToken) { (multipartFormDataEncodingResult) in
+
+            }
+        }
+    }
+
+
+    func checkStatus(json: JSON, onCompletion: (Bool, JSON, JSON, JSON) -> Void) {
         let status = AppTools.convertStringToBool(data: json["status"].stringValue)
+
         if status {
-            onCompletion(json, status)
+            onCompletion(status, json["code"], json["message"], json["data"])
         } else {
-            onCompletion(json["error"], status)
+            onCompletion(status, json["code"], json["message"], json["data"])
         }
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class ValidationHelper {
 
-    class func validateName(name:String) -> Bool {
+    class func validateTextOnly(name: String) -> Bool {
         let nameRegEx = "[A-Za-z ]"
 
         let name = NSPredicate(format: "SELF MATCHES %@", nameRegEx)
@@ -18,8 +18,8 @@ class ValidationHelper {
     }
 
     class func validateCellPhone(phone: String) -> Bool {
-        let PHONE_REGEX = "[0][0-9]{10}"
-        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+        let phoneRegEx = "[0][0-9]{10}"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegEx)
         if phoneTest.evaluate(with: phone) {
             return true
         }
@@ -32,5 +32,7 @@ class ValidationHelper {
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: email)
     }
+
+    
 
 }

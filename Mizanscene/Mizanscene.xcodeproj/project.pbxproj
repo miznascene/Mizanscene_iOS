@@ -23,7 +23,12 @@
 		84321CE023167245002E5F31 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CDF23167245002E5F31 /* RegisterView.swift */; };
 		84321CE223169CFF002E5F31 /* InputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CE123169CFF002E5F31 /* InputHelper.swift */; };
 		84321CE42316B8D3002E5F31 /* ValueKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CE32316B8D3002E5F31 /* ValueKeeper.swift */; };
-		84AD90EC231A66F2008B6471 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90EB231A66F2008B6471 /* URLHelper.swift */; };
+		8456B78E23229D8500EC6DC1 /* EnterCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456B78D23229D8500EC6DC1 /* EnterCodeView.swift */; };
+		8456B79023238B9400EC6DC1 /* EnterCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8456B78F23238B9400EC6DC1 /* EnterCodeView.xib */; };
+		849179CC231E619E00143264 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849179CB231E619E00143264 /* UserHelper.swift */; };
+		849179D0231FBC6400143264 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849179CF231FBC6400143264 /* Category.swift */; };
+		849179D2231FBC6B00143264 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849179D1231FBC6B00143264 /* Cast.swift */; };
+		849179D4231FBDBD00143264 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849179D3231FBDBD00143264 /* UserDefaultsHelper.swift */; };
 		84AD90EE231A6743008B6471 /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90ED231A6743008B6471 /* ViewHelper.swift */; };
 		84AD90F0231A675E008B6471 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90EF231A675E008B6471 /* APIHelper.swift */; };
 		84AD90F2231A68DE008B6471 /* AppTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90F1231A68DE008B6471 /* AppTools.swift */; };
@@ -75,7 +80,12 @@
 		84321CDF23167245002E5F31 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		84321CE123169CFF002E5F31 /* InputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputHelper.swift; sourceTree = "<group>"; };
 		84321CE32316B8D3002E5F31 /* ValueKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueKeeper.swift; sourceTree = "<group>"; };
-		84AD90EB231A66F2008B6471 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
+		8456B78D23229D8500EC6DC1 /* EnterCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCodeView.swift; sourceTree = "<group>"; };
+		8456B78F23238B9400EC6DC1 /* EnterCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnterCodeView.xib; sourceTree = "<group>"; };
+		849179CB231E619E00143264 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
+		849179CF231FBC6400143264 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		849179D1231FBC6B00143264 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
+		849179D3231FBDBD00143264 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		84AD90ED231A6743008B6471 /* ViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
 		84AD90EF231A675E008B6471 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		84AD90F1231A68DE008B6471 /* AppTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTools.swift; sourceTree = "<group>"; };
@@ -146,6 +156,7 @@
 				84321CD323165C87002E5F31 /* ResetPassword.xib */,
 				84321CD523165F48002E5F31 /* Register.xib */,
 				84321CDB231661AA002E5F31 /* ReceiveCode.xib */,
+				8456B78F23238B9400EC6DC1 /* EnterCodeView.xib */,
 			);
 			path = UserActions;
 			sourceTree = "<group>";
@@ -171,6 +182,7 @@
 		84F6491E2313BF3100EF0217 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84F961F92313B1B500CD4671 /* Storyboards */,
 				84F649222313BF9C00EF0217 /* Nibs */,
 				84F649212313BF8F00EF0217 /* Custom Views */,
 				84F649202313BF8400EF0217 /* Cells */,
@@ -183,10 +195,11 @@
 			children = (
 				84321CCB231568E9002E5F31 /* StringHelper.swift */,
 				84321CE123169CFF002E5F31 /* InputHelper.swift */,
-				84AD90EB231A66F2008B6471 /* URLHelper.swift */,
 				84AD90ED231A6743008B6471 /* ViewHelper.swift */,
 				84AD90EF231A675E008B6471 /* APIHelper.swift */,
 				84AD90F3231A6922008B6471 /* ValidationHelper.swift */,
+				849179CB231E619E00143264 /* UserHelper.swift */,
+				849179D3231FBDBD00143264 /* UserDefaultsHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -205,6 +218,7 @@
 				84321CD123165C57002E5F31 /* ResetPasswordView.swift */,
 				84321CDD231661C0002E5F31 /* ReceiveCodeView.swift */,
 				84321CDF23167245002E5F31 /* RegisterView.swift */,
+				8456B78D23229D8500EC6DC1 /* EnterCodeView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -222,6 +236,8 @@
 			children = (
 				84AD90F5231A696E008B6471 /* Movie.swift */,
 				84AD90F7231A6976008B6471 /* User.swift */,
+				849179CF231FBC6400143264 /* Category.swift */,
+				849179D1231FBC6B00143264 /* Cast.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,11 +272,9 @@
 				84F6491F2313BF6600EF0217 /* Helpers */,
 				84F6491E2313BF3100EF0217 /* Views */,
 				84F6491D2313BF2400EF0217 /* View Controllers */,
-				84F961F92313B1B500CD4671 /* Storyboards */,
 				84F961C82313B05700CD4671 /* AppDelegate.swift */,
 				84F961D22313B05A00CD4671 /* Assets.xcassets */,
 				84F961D72313B05A00CD4671 /* Info.plist */,
-				84F961CF2313B05700CD4671 /* Mizanscene.xcdatamodeld */,
 			);
 			path = Mizanscene;
 			sourceTree = "<group>";
@@ -295,6 +309,7 @@
 		ABCBD59D97B0490F304F0743 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				84F961CF2313B05700CD4671 /* Mizanscene.xcdatamodeld */,
 				4B7C7FE11EE0721F5D176E88 /* Pods-Mizanscene.debug.xcconfig */,
 				DFF3474ACC3E9DFE73E148B7 /* Pods-Mizanscene.release.xcconfig */,
 				DD06A1AB9D5FD3B091FA66AC /* Pods-MizansceneTests.debug.xcconfig */,
@@ -419,6 +434,7 @@
 				84F961D32313B05A00CD4671 /* Assets.xcassets in Resources */,
 				84321CD623165F48002E5F31 /* Register.xib in Resources */,
 				84321CDC231661AA002E5F31 /* ReceiveCode.xib in Resources */,
+				8456B79023238B9400EC6DC1 /* EnterCodeView.xib in Resources */,
 				84F961CE2313B05700CD4671 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,6 +548,7 @@
 			files = (
 				84AD90F0231A675E008B6471 /* APIHelper.swift in Sources */,
 				84321CE023167245002E5F31 /* RegisterView.swift in Sources */,
+				849179D0231FBC6400143264 /* Category.swift in Sources */,
 				84321CCC231568E9002E5F31 /* StringHelper.swift in Sources */,
 				84F961D12313B05700CD4671 /* Mizanscene.xcdatamodeld in Sources */,
 				84F961C92313B05700CD4671 /* AppDelegate.swift in Sources */,
@@ -539,12 +556,15 @@
 				84321CE42316B8D3002E5F31 /* ValueKeeper.swift in Sources */,
 				84AD90EE231A6743008B6471 /* ViewHelper.swift in Sources */,
 				84321CD223165C57002E5F31 /* ResetPasswordView.swift in Sources */,
+				8456B78E23229D8500EC6DC1 /* EnterCodeView.swift in Sources */,
 				84321CCA231553B4002E5F31 /* Extentions.swift in Sources */,
 				84AD90F2231A68DE008B6471 /* AppTools.swift in Sources */,
+				849179D2231FBC6B00143264 /* Cast.swift in Sources */,
 				84321CDE231661C0002E5F31 /* ReceiveCodeView.swift in Sources */,
 				84AD90F4231A6922008B6471 /* ValidationHelper.swift in Sources */,
-				84AD90EC231A66F2008B6471 /* URLHelper.swift in Sources */,
 				84AD90F8231A6976008B6471 /* User.swift in Sources */,
+				849179D4231FBDBD00143264 /* UserDefaultsHelper.swift in Sources */,
+				849179CC231E619E00143264 /* UserHelper.swift in Sources */,
 				84321CC723155282002E5F31 /* LoginView.swift in Sources */,
 				84321CC023154358002E5F31 /* MainViewController.swift in Sources */,
 				84AD90F6231A696E008B6471 /* Movie.swift in Sources */,

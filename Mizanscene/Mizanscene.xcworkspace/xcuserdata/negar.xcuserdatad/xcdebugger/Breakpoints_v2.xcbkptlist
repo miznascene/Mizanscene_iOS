@@ -2,4 +2,134 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mizanscene/Helpers/UserHelper.swift"
+            timestampString = "589983895.694105"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "sendCodeToResetPassword(email:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mizanscene/Helpers/UserHelper.swift"
+            timestampString = "589983895.694566"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "register(userID:firstName:lastName:password:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mizanscene/Helpers/APIHelper.swift"
+            timestampString = "589982449.2515039"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "sendPutRequest(urlString:queries:params:onCompletion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mizanscene.APIHelper.sendPutRequest(urlString: Swift.String, queries: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, params: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, onCompletion: (Swift.Bool, SwiftyJSON.JSON, SwiftyJSON.JSON, SwiftyJSON.JSON) -&gt; ()) -&gt; ()"
+                  moduleName = "Mizanscene"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/negar/Desktop/azarakhsh/Mizanscene_iOS/Mizanscene/Mizanscene/Helpers/APIHelper.swift"
+                  timestampString = "589984258.327168"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "2885">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in Mizanscene.APIHelper.sendPutRequest(urlString: Swift.String, queries: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, params: Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, onCompletion: (Swift.Bool, SwiftyJSON.JSON, SwiftyJSON.JSON, SwiftyJSON.JSON) -&gt; ()) -&gt; ()"
+                  moduleName = "Mizanscene"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/negar/Desktop/azarakhsh/Mizanscene_iOS/Mizanscene/Mizanscene/Helpers/APIHelper.swift"
+                  timestampString = "589984258.3294981"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "174"
+                  endingLineNumber = "174"
+                  offsetFromSymbolStart = "254">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mizanscene/Helpers/UserHelper.swift"
+            timestampString = "589983895.694909"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "login(email:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Mizanscene.UserHelper.login(email: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "Mizanscene"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/negar/Desktop/azarakhsh/Mizanscene_iOS/Mizanscene/Mizanscene/Helpers/UserHelper.swift"
+                  timestampString = "589984258.335274"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "337">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, SwiftyJSON.JSON, SwiftyJSON.JSON, SwiftyJSON.JSON) -&gt; () in Mizanscene.UserHelper.login(email: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "Mizanscene"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/negar/Desktop/azarakhsh/Mizanscene_iOS/Mizanscene/Mizanscene/Helpers/UserHelper.swift"
+                  timestampString = "589984258.338269"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "368">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

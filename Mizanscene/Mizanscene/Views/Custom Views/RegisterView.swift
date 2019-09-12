@@ -10,6 +10,10 @@ import UIKit
 
 class RegisterView: UIView {
 
+    @IBOutlet weak var logoImg: UIImageView!
+    
+    @IBOutlet weak var registerLbl: UILabel!
+    
     @IBOutlet weak var firstnameTF: UITextField!
     @IBOutlet weak var lastnameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
@@ -26,20 +30,27 @@ class RegisterView: UIView {
 
     func setViews() {
 
+        registerLbl.text = StringHelper.getCompleteTheFormToRegister()
+        if ValueKeeper.language == "fa" {
+            registerLbl.textAlignment = .right
+        } else {
+            registerLbl.textAlignment = .left
+        }
+
         firstnameTF.placeholder = StringHelper.getFirstname()
-        firstnameTF.setIcon(UIImage(named: "Image")!)
+        firstnameTF.setIcon(UIImage(named: "logo")!)
         firstnameTF.textAlignment = (ValueKeeper.language == "fa") ? .right : .left
 
         lastnameTF.placeholder = StringHelper.getLastname()
-        lastnameTF.setIcon(UIImage(named: "Image")!)
+        lastnameTF.setIcon(UIImage(named: "logo")!)
         lastnameTF.textAlignment = (ValueKeeper.language == "fa") ? .right : .left
 
         passwordTF.placeholder = StringHelper.getPassword()
-        passwordTF.setIcon(UIImage(named: "Image")!)
+        passwordTF.setIcon(UIImage(named: "logo")!)
         passwordTF.textAlignment = (ValueKeeper.language == "fa") ? .right : .left
 
         verifyPasswordTF.placeholder = StringHelper.getVerifyPasswordTF()
-        verifyPasswordTF.setIcon(UIImage(named: "Image")!)
+        verifyPasswordTF.setIcon(UIImage(named: "logo")!)
         verifyPasswordTF.textAlignment = (ValueKeeper.language == "fa") ? .right : .left
 
         registerBtn.setTitle(StringHelper.getRegister(), for: .normal)
