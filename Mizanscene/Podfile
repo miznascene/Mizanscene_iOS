@@ -10,6 +10,8 @@ target 'Mizanscene' do
   pod 'paper-onboarding'
   pod 'PinCodeTextField'
   pod 'SwiftyJSON'
+  pod 'NVActivityIndicatorView/AppExtension'
+  pod 'NVActivityIndicatorView'
 
   target 'MizansceneTests' do
     inherit! :search_paths

@@ -23,6 +23,21 @@
 		84321CE023167245002E5F31 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CDF23167245002E5F31 /* RegisterView.swift */; };
 		84321CE223169CFF002E5F31 /* InputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CE123169CFF002E5F31 /* InputHelper.swift */; };
 		84321CE42316B8D3002E5F31 /* ValueKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84321CE32316B8D3002E5F31 /* ValueKeeper.swift */; };
+		84408255232CF3740033670B /* IRANSansMobile_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408253232CF2B60033670B /* IRANSansMobile_Bold.ttf */; };
+		84408256232CF3B10033670B /* IRANSansMobile_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408254232CF2B60033670B /* IRANSansMobile_Light.ttf */; };
+		84408257232CF3B40033670B /* IRANSansMobile_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408250232CF2B60033670B /* IRANSansMobile_Medium.ttf */; };
+		84408258232CF3B50033670B /* IRANSansMobile_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408250232CF2B60033670B /* IRANSansMobile_Medium.ttf */; };
+		84408259232CF3B60033670B /* IRANSansMobile_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408250232CF2B60033670B /* IRANSansMobile_Medium.ttf */; };
+		8440825A232CF3B80033670B /* IRANSansMobile_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408254232CF2B60033670B /* IRANSansMobile_Light.ttf */; };
+		8440825B232CF3B90033670B /* IRANSansMobile_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408254232CF2B60033670B /* IRANSansMobile_Light.ttf */; };
+		8440825C232CF3BC0033670B /* IRANSansMobile_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408253232CF2B60033670B /* IRANSansMobile_Bold.ttf */; };
+		8440825D232CF3BC0033670B /* IRANSansMobile_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408253232CF2B60033670B /* IRANSansMobile_Bold.ttf */; };
+		8440825E232CF3BF0033670B /* IRANSansMobile_UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408251232CF2B60033670B /* IRANSansMobile_UltraLight.ttf */; };
+		8440825F232CF3C00033670B /* IRANSansMobile_UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408251232CF2B60033670B /* IRANSansMobile_UltraLight.ttf */; };
+		84408260232CF3C00033670B /* IRANSansMobile_UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408251232CF2B60033670B /* IRANSansMobile_UltraLight.ttf */; };
+		84408261232CF3C30033670B /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408252232CF2B60033670B /* IRANSansMobile.ttf */; };
+		84408262232CF3C30033670B /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408252232CF2B60033670B /* IRANSansMobile.ttf */; };
+		84408263232CF3C40033670B /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84408252232CF2B60033670B /* IRANSansMobile.ttf */; };
 		8456B78E23229D8500EC6DC1 /* EnterCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8456B78D23229D8500EC6DC1 /* EnterCodeView.swift */; };
 		8456B79023238B9400EC6DC1 /* EnterCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8456B78F23238B9400EC6DC1 /* EnterCodeView.xib */; };
 		849179CC231E619E00143264 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849179CB231E619E00143264 /* UserHelper.swift */; };
@@ -35,6 +50,8 @@
 		84AD90F4231A6922008B6471 /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90F3231A6922008B6471 /* ValidationHelper.swift */; };
 		84AD90F6231A696E008B6471 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90F5231A696E008B6471 /* Movie.swift */; };
 		84AD90F8231A6976008B6471 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD90F7231A6976008B6471 /* User.swift */; };
+		84ECFCE6232E27E00039447B /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECFCE5232E27E00039447B /* FontHelper.swift */; };
+		84ECFCE8232E959C0039447B /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECFCE7232E959C0039447B /* CategoryTableViewCell.swift */; };
 		84F961C92313B05700CD4671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F961C82313B05700CD4671 /* AppDelegate.swift */; };
 		84F961CE2313B05700CD4671 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F961CC2313B05700CD4671 /* Main.storyboard */; };
 		84F961D12313B05700CD4671 /* Mizanscene.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84F961CF2313B05700CD4671 /* Mizanscene.xcdatamodeld */; };
@@ -80,6 +97,11 @@
 		84321CDF23167245002E5F31 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		84321CE123169CFF002E5F31 /* InputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputHelper.swift; sourceTree = "<group>"; };
 		84321CE32316B8D3002E5F31 /* ValueKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueKeeper.swift; sourceTree = "<group>"; };
+		84408250232CF2B60033670B /* IRANSansMobile_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_Medium.ttf; sourceTree = "<group>"; };
+		84408251232CF2B60033670B /* IRANSansMobile_UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_UltraLight.ttf; sourceTree = "<group>"; };
+		84408252232CF2B60033670B /* IRANSansMobile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile.ttf; sourceTree = "<group>"; };
+		84408253232CF2B60033670B /* IRANSansMobile_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_Bold.ttf; sourceTree = "<group>"; };
+		84408254232CF2B60033670B /* IRANSansMobile_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile_Light.ttf; sourceTree = "<group>"; };
 		8456B78D23229D8500EC6DC1 /* EnterCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCodeView.swift; sourceTree = "<group>"; };
 		8456B78F23238B9400EC6DC1 /* EnterCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnterCodeView.xib; sourceTree = "<group>"; };
 		849179CB231E619E00143264 /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
@@ -92,6 +114,8 @@
 		84AD90F3231A6922008B6471 /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		84AD90F5231A696E008B6471 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		84AD90F7231A6976008B6471 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		84ECFCE5232E27E00039447B /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
+		84ECFCE7232E959C0039447B /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		84F961C52313B05700CD4671 /* Mizanscene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mizanscene.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F961C82313B05700CD4671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84F961CD2313B05700CD4671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -171,6 +195,26 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		84408249232CF2430033670B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8440824A232CF24F0033670B /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8440824A232CF24F0033670B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				84408253232CF2B60033670B /* IRANSansMobile_Bold.ttf */,
+				84408254232CF2B60033670B /* IRANSansMobile_Light.ttf */,
+				84408250232CF2B60033670B /* IRANSansMobile_Medium.ttf */,
+				84408251232CF2B60033670B /* IRANSansMobile_UltraLight.ttf */,
+				84408252232CF2B60033670B /* IRANSansMobile.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		84F6491D2313BF2400EF0217 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +244,7 @@
 				84AD90F3231A6922008B6471 /* ValidationHelper.swift */,
 				849179CB231E619E00143264 /* UserHelper.swift */,
 				849179D3231FBDBD00143264 /* UserDefaultsHelper.swift */,
+				84ECFCE5232E27E00039447B /* FontHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -207,6 +252,7 @@
 		84F649202313BF8400EF0217 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				84ECFCE7232E959C0039447B /* CategoryTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -267,6 +313,7 @@
 		84F961C72313B05700CD4671 /* Mizanscene */ = {
 			isa = PBXGroup;
 			children = (
+				84408249232CF2430033670B /* Resources */,
 				84321CC8231553A2002E5F31 /* Tools */,
 				84F649232313BFA600EF0217 /* Models */,
 				84F6491F2313BF6600EF0217 /* Helpers */,
@@ -428,13 +475,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84321CD423165C87002E5F31 /* ResetPassword.xib in Resources */,
-				84321CC5231551F5002E5F31 /* Login.xib in Resources */,
 				84F961D62313B05A00CD4671 /* LaunchScreen.storyboard in Resources */,
 				84F961D32313B05A00CD4671 /* Assets.xcassets in Resources */,
+				84321CC5231551F5002E5F31 /* Login.xib in Resources */,
+				84321CD423165C87002E5F31 /* ResetPassword.xib in Resources */,
 				84321CD623165F48002E5F31 /* Register.xib in Resources */,
 				84321CDC231661AA002E5F31 /* ReceiveCode.xib in Resources */,
 				8456B79023238B9400EC6DC1 /* EnterCodeView.xib in Resources */,
+				84408261232CF3C30033670B /* IRANSansMobile.ttf in Resources */,
+				84408255232CF3740033670B /* IRANSansMobile_Bold.ttf in Resources */,
+				84408256232CF3B10033670B /* IRANSansMobile_Light.ttf in Resources */,
+				84408257232CF3B40033670B /* IRANSansMobile_Medium.ttf in Resources */,
+				8440825E232CF3BF0033670B /* IRANSansMobile_UltraLight.ttf in Resources */,
 				84F961CE2313B05700CD4671 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +495,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8440825A232CF3B80033670B /* IRANSansMobile_Light.ttf in Resources */,
+				8440825C232CF3BC0033670B /* IRANSansMobile_Bold.ttf in Resources */,
+				84408262232CF3C30033670B /* IRANSansMobile.ttf in Resources */,
+				84408258232CF3B50033670B /* IRANSansMobile_Medium.ttf in Resources */,
+				8440825F232CF3C00033670B /* IRANSansMobile_UltraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +507,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8440825B232CF3B90033670B /* IRANSansMobile_Light.ttf in Resources */,
+				8440825D232CF3BC0033670B /* IRANSansMobile_Bold.ttf in Resources */,
+				84408263232CF3C40033670B /* IRANSansMobile.ttf in Resources */,
+				84408259232CF3B60033670B /* IRANSansMobile_Medium.ttf in Resources */,
+				84408260232CF3C00033670B /* IRANSansMobile_UltraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +618,7 @@
 				84321CE42316B8D3002E5F31 /* ValueKeeper.swift in Sources */,
 				84AD90EE231A6743008B6471 /* ViewHelper.swift in Sources */,
 				84321CD223165C57002E5F31 /* ResetPasswordView.swift in Sources */,
+				84ECFCE6232E27E00039447B /* FontHelper.swift in Sources */,
 				8456B78E23229D8500EC6DC1 /* EnterCodeView.swift in Sources */,
 				84321CCA231553B4002E5F31 /* Extentions.swift in Sources */,
 				84AD90F2231A68DE008B6471 /* AppTools.swift in Sources */,
@@ -568,6 +631,7 @@
 				84321CC723155282002E5F31 /* LoginView.swift in Sources */,
 				84321CC023154358002E5F31 /* MainViewController.swift in Sources */,
 				84AD90F6231A696E008B6471 /* Movie.swift in Sources */,
+				84ECFCE8232E959C0039447B /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

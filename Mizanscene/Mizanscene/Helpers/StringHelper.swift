@@ -74,6 +74,14 @@ class StringHelper {
         }
     }
 
+    class func getNoAccountRegister() -> String{
+        if ValueKeeper.language == "fa" {
+            return "حساب کاربری ندارید؟ ثبت نام کنید."
+        } else {
+            return "No account? Register"
+        }
+    }
+
     class func getRegister() -> String{
         if ValueKeeper.language == "fa" {
             return "ثبت نام"
@@ -230,6 +238,34 @@ class StringHelper {
             return "لطفا نام خانوادگی خود را وارد نمایید."
         } else {
             return "Please enter your last name."
+        }
+    }
+    class func getSuccessfulRegister() -> String {
+        if ValueKeeper.language == "fa" {
+            return "ثبت نام با موفقیت انجام شد."
+        } else {
+            return "Register compeleted!"
+        }
+    }
+    class func getSuccessfulResetPassword() -> String {
+        if ValueKeeper.language == "fa" {
+            return "تغییر رمز عبور با موفقیت انجام شد."
+        } else {
+            return "Password changed!"
+        }
+    }
+    class func getSuccessfulResetCode() -> String {
+        if ValueKeeper.language == "fa" {
+            return "کد جدید با موفقیت ارسال شد."
+        } else {
+            return "Code reset!"
+        }
+    }
+    class func getCheckYourConnectivity() -> String {
+        if ValueKeeper.language == "fa" {
+            return "لطفا اتصال خود را بررسی کنید."
+        } else {
+            return "Please check our connectivity."
         }
     }
 }

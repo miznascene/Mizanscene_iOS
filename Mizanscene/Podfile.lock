@@ -1,11 +1,17 @@
 PODS:
   - Alamofire (4.8.1)
+  - NVActivityIndicatorView (4.6.0):
+    - NVActivityIndicatorView/Presenter (= 4.6.0)
+  - NVActivityIndicatorView/AppExtension (4.6.0)
+  - NVActivityIndicatorView/Presenter (4.6.0)
   - paper-onboarding (5.0.0)
   - PinCodeTextField (0.1.0)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
   - Alamofire
+  - NVActivityIndicatorView
+  - NVActivityIndicatorView/AppExtension
   - paper-onboarding
   - PinCodeTextField
   - SwiftyJSON
@@ -13,16 +19,18 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - NVActivityIndicatorView
     - paper-onboarding
     - PinCodeTextField
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  NVActivityIndicatorView: 9c3704896798b042315e2a154dc27e48384756f0
   paper-onboarding: a2e3a710fd27ac0b5635ec5490660e7ec09289b5
   PinCodeTextField: a3c39be58bde3ed1d6888d0fb1d88b0a4a2277cc
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 4c35bc3bda3c094e7153c4eef8d01f47e87c9804
+PODFILE CHECKSUM: 5b9d291e2834e35582ddaeab3ac3eed820142b29
 
 COCOAPODS: 1.7.5

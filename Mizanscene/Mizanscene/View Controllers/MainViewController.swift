@@ -8,13 +8,14 @@
 
 import UIKit
 import paper_onboarding
+import NVActivityIndicatorView
 
-enum Action : String{
+enum Action: String {
     case register = "register"
     case resetPassword = "reset"
 }
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, NVActivityIndicatorViewable {
 
     let pages = [OnboardingItemInfo(informationImage: UIImage(named: "logo")!,
         title: "title1",
@@ -53,13 +54,17 @@ class MainViewController: UIViewController {
     var receiveCodeView = ReceiveCodeView()
     var registerView = RegisterView()
     var enterCodeView = EnterCodeView()
+    var indicatorView = NVActivityIndicatorView(frame: .zero)
 
     var receiveCodeAction: Action = .register
     var userEmail = ""
     var userID = 0
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
+
+        self.hideKeyboardWhenTappedAround()
 
         userHelper.delegate = self
 
@@ -77,13 +82,15 @@ class MainViewController: UIViewController {
             onboardingView.isHidden = false
         }
 
-        // Do any additional setup after loading the view.
-//        setupPaperOnboardingView()
-//        setupLoginView()
-//        setupResetPasswordView()
-//        setupReceiveCodeView()
-//        setupRegisterView()
+//        setupEnterCodeView()
+    }
 
+
+    private func startIndicator() {
+        let indicatorSize = 50
+        let backgroundGray = UIColor(displayP3Red: 0.77, green: 0.77, blue: 0.77, alpha: 0.5)
+
+        startAnimating(CGSize(width: indicatorSize, height: indicatorSize), type: .ballRotateChase, color: ValueKeeper.errorAlertFrameColor, backgroundColor: backgroundGray)
     }
 
     private func setupPaperOnboardingView() {
@@ -146,30 +153,36 @@ class MainViewController: UIViewController {
 
     private func validateLoginInputs(email: String, password: String) -> Bool {
         if email.count == 0 {
-            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourEmailPlease())
+            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourEmailPlease(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
         if password.count == 0 {
-            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourPasswordPlease())
+            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourPasswordPlease(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
 
         }
         if !ValidationHelper.validateEmail(email: email) {
-            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourEmailCorrectlyPlease())
+            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourEmailCorrectlyPlease(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
         return true
     }
 
     @objc func loginButtonAction(sender: UIButton!) {
-        let email = loginView.emailTF.text!
-        let password = loginView.emailTF.text!
-        if validateLoginInputs(email: email, password: password) {
-            loginView.loginBtn.isEnabled = false
-            loginView.gotoRegisterBtn.isEnabled = false
-            loginView.forgetPasswordBtn.isEnabled = false
-            userHelper.login(email: email, password: password)
+        if Connectivity.isConnectedToInternet() {
+            let email = loginView.emailTF.text!
+            let password = loginView.emailTF.text!
+            if validateLoginInputs(email: email, password: password) {
+                loginView.loginBtn.isEnabled = false
+                loginView.gotoRegisterBtn.isEnabled = false
+                loginView.forgetPasswordBtn.isEnabled = false
+                userHelper.login(email: email, password: password)
+                startIndicator()
+            }
+        } else {
+            ViewHelper.showToastMessage(message: StringHelper.getCheckYourConnectivity())
         }
+
 
     }
 
@@ -194,38 +207,53 @@ class MainViewController: UIViewController {
             receiveCodeView = fetchedReceiveCodeView
             receiveCodeView.setViews()
             receiveCodeView.receiveCodeBtn.addTarget(self, action: #selector(receiveCodeButtonAction), for: .touchUpInside)
+            receiveCodeView.backBtn.addTarget(self, action: #selector(receiveCodeBackButtonAction), for: .touchUpInside)
+
             view.addSubview(receiveCodeView)
         }
     }
 
-    private func validateReceiveCodeInput(email: String) -> Bool{
-        if email.count == 0{
-            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourEmailPlease())
+    private func validateReceiveCodeInput(email: String) -> Bool {
+        if email.count == 0 {
+            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourEmailPlease(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
-        if !ValidationHelper.validateEmail(email: email){
-            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourEmailCorrectlyPlease())
+        if !ValidationHelper.validateEmail(email: email) {
+            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourEmailCorrectlyPlease(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
         return true
     }
 
     @objc func receiveCodeButtonAction(sender: UIButton!) {
-        let email = receiveCodeView.emailTF.text!
+        if Connectivity.isConnectedToInternet() {
+            let email = receiveCodeView.emailTF.text!
 
-        if validateReceiveCodeInput(email: email){
-            userEmail = email
-            receiveCodeView.receiveCodeBtn.isEnabled = false
-
-            if receiveCodeAction == .register{
-                userHelper.sendCodeToRegister(email: email)
-            }else{
-                userHelper.sendCodeToResetPassword(email: email)
+            if validateReceiveCodeInput(email: email) {
+                userEmail = email
+                receiveCodeView.receiveCodeBtn.isEnabled = false
+                if receiveCodeAction == .register {
+                    userHelper.sendCodeToRegister(email: email)
+                } else {
+                    userHelper.sendCodeToResetPassword(email: email)
+                }
+                startIndicator()
             }
+        } else {
+            ViewHelper.showToastMessage(message: StringHelper.getCheckYourConnectivity())
+
         }
+
     }
 
-    private func setupEnterCodeView(){
+    @objc func receiveCodeBackButtonAction(sender: UIButton!) {
+        setupLoginView()
+        loginView.isHidden = false
+        receiveCodeView.emailTF.text = ""
+        receiveCodeView.isHidden = true
+    }
+
+    private func setupEnterCodeView() {
         if let fetchedSetupEnterCodeView = Bundle.main.loadNibNamed("EnterCodeView", owner: self, options: nil)?.first as? EnterCodeView {
 
             enterCodeView = fetchedSetupEnterCodeView
@@ -236,7 +264,7 @@ class MainViewController: UIViewController {
 
             enterCodeView.editEmailBtn.addTarget(self, action: #selector(editEmailButtonAction), for: .touchUpInside)
             enterCodeView.sendCodeBtn.addTarget(self, action: #selector(sendCodeButtonAction), for: .touchUpInside)
-//            enterCodeView.receiveCodeAgainBtn.addTarget(self, action: #selector(receiveCodeAgainButtonAction), for: .touchUpInside)
+            enterCodeView.receiveCodeAgainBtn.addTarget(self, action: #selector(receiveCodeAgainButtonAction), for: .touchUpInside)
 
             view.addSubview(enterCodeView)
         }
@@ -248,14 +276,30 @@ class MainViewController: UIViewController {
         receiveCodeView.isHidden = false
     }
     @objc func sendCodeButtonAction(sender: UIButton!) {
-        enterCodeView.sendCodeBtn.isEnabled = false
-        enterCodeView.editEmailBtn.isEnabled = false
+        if Connectivity.isConnectedToInternet() {
+            enterCodeView.sendCodeBtn.isEnabled = false
+            enterCodeView.editEmailBtn.isEnabled = false
+            enterCodeView.receiveCodeAgainBtn.isEnabled = false
 
-        userHelper.verifyCode(userID: self.userID, action: self.receiveCodeAction.rawValue, code: enterCodeView.codeTF.text!)
+            userHelper.verifyCode(userID: self.userID, action: self.receiveCodeAction.rawValue, code: enterCodeView.codeTF.text!)
+            startIndicator()
+        } else {
+            ViewHelper.showToastMessage(message: StringHelper.getCheckYourConnectivity())
+        }
     }
-//    @objc func receiveCodeAgainButtonAction(sender: UIButton!) {
-//
-//    }
+    @objc func receiveCodeAgainButtonAction(sender: UIButton!) {
+        if Connectivity.isConnectedToInternet() {
+            enterCodeView.sendCodeBtn.isEnabled = false
+            enterCodeView.editEmailBtn.isEnabled = false
+            enterCodeView.receiveCodeAgainBtn.isEnabled = false
+
+            userHelper.resetCode(userID: self.userID)
+
+            startIndicator()
+        } else {
+            ViewHelper.showToastMessage(message: StringHelper.getCheckYourConnectivity())
+        }
+    }
 
 
     private func setupResetPasswordView() {
@@ -269,32 +313,37 @@ class MainViewController: UIViewController {
 
     private func validateResetPasswordInputs(password: String, verifyPassword: String) -> Bool {
         if password.count == 0 {
-            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourEmailPlease())
+            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourEmailPlease(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
         if verifyPassword.count == 0 {
-            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourVerifyPasswordPlease())
+            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourVerifyPasswordPlease(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
 
         if password.count < 6 {
-            ViewHelper.userActionsToastView(message: StringHelper.getPasswordLetterCountMoreThan6())
+            ViewHelper.userActionsToastView(message: StringHelper.getPasswordLetterCountMoreThan6(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
 
         if password != verifyPassword {
-            ViewHelper.userActionsToastView(message: StringHelper.getPasswordsAreNotMatch())
+            ViewHelper.userActionsToastView(message: StringHelper.getPasswordsAreNotMatch(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
         return true
     }
 
     @objc func resetPasswordButtonAction(sender: UIButton!) {
-        let password = resetPasswordView.passwordTF.text!
-        let verifyPassword = resetPasswordView.verifyPasswordTF.text!
-        if validateResetPasswordInputs(password: password, verifyPassword: verifyPassword){
-            resetPasswordView.resetPasswordBtn.isEnabled = false
-            userHelper.resetPassword(userID: self.userID, password: resetPasswordView.passwordTF.text!)
+        if Connectivity.isConnectedToInternet() {
+            let password = resetPasswordView.passwordTF.text!
+            let verifyPassword = resetPasswordView.verifyPasswordTF.text!
+            if validateResetPasswordInputs(password: password, verifyPassword: verifyPassword) {
+                resetPasswordView.resetPasswordBtn.isEnabled = false
+                userHelper.resetPassword(userID: self.userID, password: resetPasswordView.passwordTF.text!)
+                startIndicator()
+            }
+        } else {
+            ViewHelper.showToastMessage(message: StringHelper.getCheckYourConnectivity())
         }
     }
 
@@ -307,46 +356,49 @@ class MainViewController: UIViewController {
         }
     }
 
-    private func validateRegisterInputs(firstName: String, lastName: String, password: String, verifyPassword: String) -> Bool{
+    private func validateRegisterInputs(firstName: String, lastName: String, password: String, verifyPassword: String) -> Bool {
         if firstName.count == 0 {
-            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourFirstNamePlease())
+            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourFirstNamePlease(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
         if lastName.count == 0 {
-            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourLastNamePlease())
+            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourLastNamePlease(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
         if password.count == 0 {
-            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourEmailPlease())
+            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourEmailPlease(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
         if verifyPassword.count == 0 {
-            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourVerifyPasswordPlease())
+            ViewHelper.userActionsToastView(message: StringHelper.getEnterYourVerifyPasswordPlease(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
         if password.count < 6 {
-            ViewHelper.userActionsToastView(message: StringHelper.getPasswordLetterCountMoreThan6())
+            ViewHelper.userActionsToastView(message: StringHelper.getPasswordLetterCountMoreThan6(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
         if password != verifyPassword {
-            ViewHelper.userActionsToastView(message: StringHelper.getPasswordsAreNotMatch())
+            ViewHelper.userActionsToastView(message: StringHelper.getPasswordsAreNotMatch(), frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
             return false
         }
         return true
     }
 
     @objc func registerButtonAction(sender: UIButton!) {
+        if Connectivity.isConnectedToInternet() {
+            let firstName = registerView.firstnameTF.text!
+            let lastName = registerView.lastnameTF.text!
+            let password = registerView.passwordTF.text!
+            let verifyPassword = registerView.verifyPasswordTF.text!
 
-        let firstName = registerView.firstnameTF.text!
-        let lastName = registerView.lastnameTF.text!
-        let password = registerView.passwordTF.text!
-        let verifyPassword = registerView.verifyPasswordTF.text!
+            if validateRegisterInputs(firstName: firstName, lastName: lastName, password: password, verifyPassword: verifyPassword) {
+                registerView.registerBtn.isEnabled = false
 
-        if validateRegisterInputs(firstName: firstName, lastName: lastName, password: password, verifyPassword: verifyPassword){
-            registerView.registerBtn.isEnabled = false
-
-            userHelper.register(userID: self.userID, firstName: firstName, lastName: lastName, password: password)
-
+                userHelper.register(userID: self.userID, firstName: firstName, lastName: lastName, password: password)
+                startIndicator()
+            }
+        } else {
+            ViewHelper.showToastMessage(message: StringHelper.getCheckYourConnectivity())
         }
     }
 
@@ -398,14 +450,17 @@ extension MainViewController: UserDelegate {
         loginView.forgetPasswordBtn.isEnabled = true
 
         //goto main
+        stopAnimating()
     }
     func loginUnsuccessfully(errorCode: String, errorMessage: String) {
 
-        ViewHelper.userActionsToastView(message: errorMessage)
+        ViewHelper.userActionsToastView(message: errorMessage, frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
 
         loginView.loginBtn.isEnabled = true
         loginView.gotoRegisterBtn.isEnabled = true
         loginView.forgetPasswordBtn.isEnabled = true
+
+        stopAnimating()
     }
 
     func sendCodeToResetPasswordSuccessfully(userID: Int) {
@@ -417,10 +472,14 @@ extension MainViewController: UserDelegate {
 
         setupEnterCodeView()
         enterCodeView.isHidden = false
+
+        stopAnimating()
     }
     func sendCodeToResetPasswordUnsuccessfully(errorCode: String, errorMessage: String) {
-        ViewHelper.userActionsToastView(message: errorMessage)
+        ViewHelper.userActionsToastView(message: errorMessage, frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
         receiveCodeView.receiveCodeBtn.isEnabled = true
+
+        stopAnimating()
     }
 
     func sendCodeToRegisterSuccessfully(userID: Int) {
@@ -432,10 +491,14 @@ extension MainViewController: UserDelegate {
 
         setupEnterCodeView()
         enterCodeView.isHidden = false
+
+        stopAnimating()
     }
     func sendCodeToRegisterUnsuccessfully(errorCode: String, errorMessage: String) {
-        ViewHelper.userActionsToastView(message: errorMessage)
+        ViewHelper.userActionsToastView(message: errorMessage, frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
         receiveCodeView.receiveCodeBtn.isEnabled = true
+
+        stopAnimating()
     }
 
     func verifyCodeSuccessfully() {
@@ -443,20 +506,45 @@ extension MainViewController: UserDelegate {
 
         enterCodeView.sendCodeBtn.isEnabled = true
         enterCodeView.editEmailBtn.isEnabled = true
+        enterCodeView.receiveCodeAgainBtn.isEnabled = true
 
-        if receiveCodeAction == .register{
+        if receiveCodeAction == .register {
             setupRegisterView()
             registerView.isHidden = false
-        }else{
+        } else {
             setupResetPasswordView()
             resetPasswordView.isHidden = false
         }
+
+        stopAnimating()
     }
     func verifyCodeUnsuccessfully(errorCode: String, errorMessage: String) {
-        ViewHelper.userActionsToastView(message: errorMessage)
+        ViewHelper.userActionsToastView(message: errorMessage, frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
 
         enterCodeView.sendCodeBtn.isEnabled = true
         enterCodeView.editEmailBtn.isEnabled = true
+        enterCodeView.receiveCodeAgainBtn.isEnabled = true
+
+        stopAnimating()
+    }
+
+    func resetCodeSuccessfully() {
+        ViewHelper.userActionsToastView(message: StringHelper.getSuccessfulResetCode(), frameColor: ValueKeeper.messageAlertFrameColor, textColor: ValueKeeper.messageAertTextColor)
+
+        enterCodeView.sendCodeBtn.isEnabled = true
+        enterCodeView.editEmailBtn.isEnabled = true
+        enterCodeView.receiveCodeAgainBtn.isEnabled = true
+
+        stopAnimating()
+    }
+    func resetCodeUnsuccessfully(errorCode: String, errorMessage: String) {
+        ViewHelper.userActionsToastView(message: errorMessage, frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
+
+        enterCodeView.sendCodeBtn.isEnabled = true
+        enterCodeView.editEmailBtn.isEnabled = true
+        enterCodeView.receiveCodeAgainBtn.isEnabled = true
+
+        stopAnimating()
     }
 
     func resetPasswordSuccessfully() {
@@ -464,15 +552,21 @@ extension MainViewController: UserDelegate {
         resetPasswordView.isHidden = true
         resetPasswordView.resetPasswordBtn.isEnabled = true
 
+        ViewHelper.userActionsToastView(message: StringHelper.getSuccessfulResetPassword(), frameColor: ValueKeeper.messageAlertFrameColor, textColor: ValueKeeper.messageAertTextColor)
+
         setupLoginView()
 
         loginView.isHidden = false
+
+        stopAnimating()
     }
     func resetPasswordUnsuccessfully(errorCode: String, errorMessage: String) {
 
-        ViewHelper.userActionsToastView(message: errorMessage)
+        ViewHelper.userActionsToastView(message: errorMessage, frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
 
         resetPasswordView.resetPasswordBtn.isEnabled = true
+
+        stopAnimating()
     }
 
     func registerSuccessfully() {
@@ -480,15 +574,21 @@ extension MainViewController: UserDelegate {
         registerView.isHidden = true
         registerView.registerBtn.isEnabled = true
 
+        ViewHelper.userActionsToastView(message: StringHelper.getSuccessfulRegister(), frameColor: ValueKeeper.messageAlertFrameColor, textColor: ValueKeeper.messageAertTextColor)
+
         setupLoginView()
 
         loginView.isHidden = false
+
+        stopAnimating()
     }
     func registerUnsuccessfully(errorCode: String, errorMessage: String) {
 
-        ViewHelper.userActionsToastView(message: errorMessage)
+        ViewHelper.userActionsToastView(message: errorMessage, frameColor: ValueKeeper.errorAlertFrameColor, textColor: ValueKeeper.errorAlertTextColor)
 
         registerView.registerBtn.isEnabled = true
+
+        stopAnimating()
     }
 
     func changeEmailSuccessfully() {
@@ -502,13 +602,6 @@ extension MainViewController: UserDelegate {
 
     }
     func getUserDetailsUnsuccessfully(errorCode: String, errorMessage: String) {
-
-    }
-
-    func resetCodeSuccessfully() {
-
-    }
-    func resetCodeUnsuccessfully(errorCode: String, errorMessage: String) {
 
     }
 

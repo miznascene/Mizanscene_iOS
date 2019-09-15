@@ -4,7 +4,11 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string></string>
+		<string>IRANSansMobile.ttf</string>
+		<string>IRANSansMobile_Bold.ttf</string>
+		<string>IRANSansMobile_Light.ttf</string>
+		<string>IRANSansMobile_Medium.ttf</string>
+		<string>IRANSansMobile_UltraLight.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

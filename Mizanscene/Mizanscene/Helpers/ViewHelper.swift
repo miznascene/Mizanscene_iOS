@@ -11,15 +11,6 @@ import UIKit
 
 class ViewHelper {
 
-    class func MakeShadowView(frame: CGRect, color: UIColor, opacity: Float, radius: CGFloat) -> UIView {
-
-        let shadowView = UIView(frame: frame)
-        shadowView.backgroundColor = color
-        shadowView.layer.opacity = opacity
-        shadowView.layer.cornerRadius = radius;
-        return shadowView
-    }
-
     class func showToastMessage(message: String) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let holder = UIView(frame: CGRect.zero)
@@ -64,19 +55,22 @@ class ViewHelper {
             })
     }
 
-    class func userActionsToastView(message: String) {
+    class func userActionsToastView(message: String, frameColor: UIColor, textColor: UIColor) {
 
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
         let holder = UIView(frame: CGRect.zero)
         let label = UILabel(frame: CGRect.zero)
 
+
         label.textAlignment = NSTextAlignment.center
         label.text = message
         //        label.font = FontHelper.getFooFont(size: 13)
         label.adjustsFontSizeToFitWidth = true
-        label.backgroundColor = UIColor(red:0.97, green:0.56, blue:0.52, alpha:1.0)
-        label.textColor = UIColor(red:0.27, green:0.08, blue:0.07, alpha:1.0)
+        label.backgroundColor = .white
+        label.layer.borderWidth = 2
+        label.layer.borderColor = frameColor.cgColor
+        label.textColor = textColor
 
         label.sizeToFit()
         label.numberOfLines = 4
@@ -116,4 +110,16 @@ class ViewHelper {
         })
     }
 
+    class func makePinkBackView(x: Double, y: Double) -> UIView{
+
+        let width = Double(UIScreen.main.bounds.width) - 100
+        let height = Double(UIScreen.main.bounds.height) - y
+
+        let pinkView = UIView()
+        pinkView.frame = CGRect(x: x, y: y, width: width, height: height)
+        pinkView.backgroundColor = ValueKeeper.primaryPinkColor
+        pinkView.layer.cornerRadius = 8
+        pinkView.layer.masksToBounds = true
+        return pinkView
+    }
 }
